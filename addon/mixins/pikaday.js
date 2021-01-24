@@ -108,9 +108,11 @@ export default Mixin.create({
   setupPikaday() {
     const pikaday = new Pikaday(this.get('_options'));
 
-    if (this.get('defaultDate')) {
-      this.set('value', this.get('defaultDate'));
-    }
+    // TKD: No two-way data binding. It throws errors if @value is a defined
+    // arg on a parent class.
+    // if (this.get('defaultDate')) {
+    //   this.set('value', this.get('defaultDate'));
+    // }
 
     this.set('pikaday', pikaday);
     this.setPikadayDate();

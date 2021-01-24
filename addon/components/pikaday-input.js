@@ -36,7 +36,9 @@ export default Component.extend(PikadayMixin, {
       this.get('pikaday').getDate() === null ||
       isEmpty(this.get('element').value)
     ) {
-      this.set('value', null);
+      // TKD: No two-way data binding. It throws errors if @value is a defined
+      // arg on a parent class.
+      // this.set('value', null);
       this.get('onSelection')(null);
     }
 
